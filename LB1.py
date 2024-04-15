@@ -17,9 +17,11 @@ def isPrime(n):
     else:
         return False
 def middleFour(num):
+    if num >= 1000:
+        return False
     num_str = str(num)
     mid_index = len(num_str) // 2
-    return num_str[mid_index] == '4' if len(num_str) % 2 != 0 else num_str[mid_index - 1] == '4'
+    return len(num_str) > 1 and num_str[mid_index] == '4' if len(num_str) % 2 != 0 else '4' in num_str[mid_index-1:mid_index+1]
 primesMidFour = []
 def digitToWord(number):
     return ' '.join(digitsList[digit] for digit in str(number))
